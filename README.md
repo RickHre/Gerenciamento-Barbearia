@@ -2,5 +2,5 @@ Projeto ainda em desenvolvimento
 * Dependencias:
 - XAMPP
 - MySQL
-- VSCode
+- Flask - flask-mysqldb
 - Python 3.19
