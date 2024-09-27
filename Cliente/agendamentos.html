@@ -30,8 +30,8 @@
                         <input type="date" class="form-control" id="data" name="data">
                     </div>
                     <div class="form-group">
-                        <label for="cliente">Cliente</label>
-                        <input type="text" class="form-control" id="cliente" name="cliente">
+                        <label for="mes">Mês</label>
+                        <input type="month" class="form-control" id="mes" name="mes">
                     </div>
                     <button type="submit" class="btn btn-primary">Pesquisar</button>
                 </form>
@@ -42,7 +42,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Data</th>
                             <th>Hora</th>
                             <th>Descrição</th>
@@ -53,11 +52,10 @@
                     <tbody>
                         {% for agendamento in agendamentos %}
                         <tr>
-                            <td>{{ agendamento[0] }}</td>
                             <td>{{ agendamento[1] }}</td>
                             <td>{{ agendamento[2] }}</td>
-                            <td>{{ agendamento[3] }}</td>
                             <td>{{ agendamento[4] }}</td>
+                            <td>{{ agendamento[3] }}</td>
                             <td>
                                 <form action="{{ url_for('delete', id=agendamento[0]) }}" method="post">
                                     <button type="submit" class="btn btn-danger">Excluir</button>

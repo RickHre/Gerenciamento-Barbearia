@@ -25,12 +25,27 @@ def home():
 def agendamentos():
     cur = mysql.connection.cursor()
     if request.method == 'POST':
-        search_data = request.form['data']
-        search_cliente = request.form['cliente']
-        query = "SELECT * FROM agendamentos WHERE data LIKE %s AND cliente LIKE %s"
-        cur.execute(query, ('%' + search_data + '%', '%' + search_cliente + '%'))
+        search_data = request.form.get('data')
+        search_month = request.form.get('mes')
+        query = "SELECT id, data, hora, cliente, descricao FROM agendamentos WHERE "
+        query_conditions = []
+        query_values = []
+
+        if search_data:
+            query_conditions.append("data = %s")
+            query_values.append(search_data)
+        if search_month:
+            query_conditions.append("data LIKE %s")
+            query_values.append(search_month + '%')
+
+        if query_conditions:
+            query += " OR ".join(query_conditions)
+        else:
+            query += "1=0"  # Não retorna resultados se nenhum filtro for aplicado
+
+        cur.execute(query, query_values)
     else:
-        cur.execute("SELECT * FROM agendamentos WHERE 1=0")  # Não retorna resultados na inicialização
+        cur.execute("SELECT id, data, hora, cliente, descricao FROM agendamentos WHERE 1=0")  # Não retorna resultados na inicialização
     data = cur.fetchall()
     cur.close()
     return render_template('agendamentos.html', agendamentos=data)
