@@ -1,4 +1,0 @@
-pip install flask flask-mysqldb
-CRIAR VM : python -m venv nome_da_vm
-Ativar VM : nome_da_vm\Scripts\activate
-Desativar VM: deactivate
