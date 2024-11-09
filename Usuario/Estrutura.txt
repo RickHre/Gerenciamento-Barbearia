@@ -1,0 +1,17 @@
+BarberShop/
+├── users/
+    ├── appUsers.py
+    ├── templates/
+    │   ├── agendamentos.html
+    │   ├── login.html
+    │   ├── register.html
+    ├── static/
+    │   ├── css/
+    │   │   └── styles.css
+    └── requirements.txt
+
+
+
+CRIAR VM : python -m venv nome_da_vm
+Ativar VM : nome_da_vm\Scripts\activate
+Desativar VM: deactivate
