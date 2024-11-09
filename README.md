@@ -1,8 +1,6 @@
 Projeto ainda em desenvolvimento
-* Dependencias:
+* softwares:
 - XAMPP
 - MySQL
-- Flask - flask-mysqldb
+- Flask 
 - Python 3.19
-
-Para cada pasta é necessário criar um diretório 'templates' e inserir os arquivos html, para o '.css' criar um diretorio 'static' em 'templates'.
